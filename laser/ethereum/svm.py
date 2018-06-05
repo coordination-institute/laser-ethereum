@@ -162,13 +162,16 @@ class SVM:
 
         # Loop detection: Every jump target is checked against the last four jump destinations
 
-        if jump_addr in self.last_jump_targets:
-            return False
+        # NOTE: This has been removed because it messes with assertion checking and also
+        # the max depth constraint handles this anyway.
 
-        self.last_jump_targets.append(jump_addr)
+        # if jump_addr in self.last_jump_targets:
+        #     return False
 
-        if len(self.last_jump_targets) > 4:
-            self.last_jump_targets.pop(0)
+        # self.last_jump_targets.append(jump_addr)
+
+        # if len(self.last_jump_targets) > 4:
+        #     self.last_jump_targets.pop(0)
 
         return True
 
